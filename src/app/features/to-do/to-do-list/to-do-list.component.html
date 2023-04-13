@@ -10,13 +10,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let element of toDoList">
-                        <th>{{element.status}}</th>
+                    <tr *ngFor="let element of toDoList" [ngClass]="{'done': element.status}">
+                        <th><input type="checkbox" [checked]="element.status"></th>
                         <td>{{element.title}}</td>
                         <td>{{element.desc}}</td>
                     </tr>
                 </tbody>
             </table>
+            <app-to-do-add-element></app-to-do-add-element>
         </div>
     </div>
 </div>

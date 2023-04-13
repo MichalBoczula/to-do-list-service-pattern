@@ -1,1 +1,25 @@
-<p>to-do-add-element works!</p>
+<button *ngIf="!isActive" class="btn btn-primary" (click)="activePanel()">Add new Task</button>
+<div *ngIf="isActive" class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Desc</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><input type="checkbox"> </th>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <button class="btn btn-success" style="margin: 10px;" (click)="addTask()">Add</button>
+            <button class="btn btn-danger" (click)="discard()">Discard</button>
+        </div>
+    </div>
+</div>

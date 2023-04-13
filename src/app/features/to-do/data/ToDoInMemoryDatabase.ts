@@ -25,12 +25,12 @@ export class ToDoInMemoryDatabase implements InMemoryDbService {
                 desc: 'create some app'
             },
             {
-                status: true,
+                status: false,
                 title: 'exercise',
                 desc: 'kick enemies in the face'
             },
             {
-                status: true,
+                status: false,
                 title: 'learn',
                 desc: 'how to programming better'
             },

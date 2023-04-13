@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class ToDoAddElementComponent {
 
+  isActive: boolean = false;
+
+  activePanel() {
+    this.isActive = true;
+  }
+
+  addTask() {
+    this.isActive = false;
+  }
+
+  discard() {
+    this.isActive = false;
+  }
 }
