@@ -6,6 +6,7 @@ import { ToDoInMemoryDatabase } from './data/ToDoInMemoryDatabase';
 import { HttpClientModule } from '@angular/common/http';
 import { ToDoService } from './service/to-do.service';
 import { ToDoAddElementComponent } from './to-do-add-element/to-do-add-element.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ToDoAddElementComponent } from './to-do-add-element/to-do-add-element.c
   imports: [
     CommonModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forFeature(ToDoInMemoryDatabase, { delay: 1000 })
+    HttpClientInMemoryWebApiModule.forFeature(ToDoInMemoryDatabase, { delay: 1000 }),
+    ReactiveFormsModule
   ],
   exports: [
     ToDoListComponent,
