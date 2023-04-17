@@ -17,4 +17,10 @@ export class ToDoListComponent implements OnInit {
     this.toDoService.toDoList$
       .subscribe(list => this.toDoList = list);
   }
+
+  changeStatus(id: number): void {
+    this.toDoList
+      .filter(x => x.id === id)
+      .map(x => x.status = !x.status);
+  }
 }

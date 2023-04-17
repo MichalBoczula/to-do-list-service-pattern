@@ -1,5 +1,6 @@
 export interface ToDoModel {
-    status: boolean
+    id: number;
+    status: boolean;
     title: string;
     desc: string;
 }

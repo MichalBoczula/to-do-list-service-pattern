@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ToDoModel } from '../model/ToDoModel';
+import { ToDoService } from '../service/to-do.service';
 
 @Component({
   selector: 'app-to-do-add-element',
@@ -14,7 +15,7 @@ export class ToDoAddElementComponent {
   taskForm!: FormGroup;
   errors?: string[];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private toDoService: ToDoService) { }
 
   activePanel() {
     this.isActive = true;
@@ -31,7 +32,8 @@ export class ToDoAddElementComponent {
       this.errors = undefined;
 
       const task: ToDoModel = this.taskForm.getRawValue();
-      console.log(task);
+      task.id = this.toDoService.getActualId() + 1;
+      this.toDoService.addTask(task);
     }
     else {
       this.errors = [];
@@ -51,10 +53,6 @@ export class ToDoAddElementComponent {
 
   discard() {
     this.isActive = false;
-    this.errors = undefined;
-  }
-
-  private cleanUpForm(): void {
     this.errors = undefined;
   }
 }

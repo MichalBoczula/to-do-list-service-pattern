@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let element of toDoList" [ngClass]="{'done': element.status}">
-                        <th><input type="checkbox" [checked]="element.status"></th>
+                        <th><input type="checkbox" [checked]="element.status" (click)="changeStatus(element.id)"></th>
                         <td>{{element.title}}</td>
                         <td>{{element.desc}}</td>
                     </tr>
