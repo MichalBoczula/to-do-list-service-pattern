@@ -10,10 +10,12 @@ import { ToDoModel } from '../model/ToDoModel';
 export class ToDoListComponent implements OnInit {
 
   toDoList!: ToDoModel[]
+  loaded!: boolean;
 
   constructor(private toDoService: ToDoService) { }
 
   ngOnInit(): void {
+    this.toDoService.loaded$.subscribe(val => this.loaded = val);
     this.toDoService.toDoList$
       .subscribe(list => this.toDoList = list);
   }

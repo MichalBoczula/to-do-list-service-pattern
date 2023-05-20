@@ -22,6 +22,8 @@ export class ToDoService {
 
   private actualId!: number;
 
+  loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   toDoList$ = combineLatest([
     this.initlaToDoList$,
     this.additionalItems$
@@ -30,6 +32,7 @@ export class ToDoService {
       map(([todo, add]) => {
         const arr = todo.concat(add);
         this.actualId = arr.length;
+        this.loaded$.next(true);
         return arr;
       })
     ) as Observable<any>;
